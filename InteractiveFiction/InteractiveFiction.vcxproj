@@ -151,11 +151,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Inventory.h" />
+    <ClInclude Include="Movement.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Rooms.h" />
+    <ClInclude Include="UserInput.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="InteractiveFiction.cpp" />
+    <ClCompile Include="Inventory.cpp" />
+    <ClCompile Include="Movement.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -163,6 +168,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Rooms.cpp" />
+    <ClCompile Include="UserInput.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
