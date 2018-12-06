@@ -3,21 +3,24 @@
 #include "Inventory.h"
 #include<iostream>
 #include <string>
+#include "Room.h"
 using namespace std;
 
 //Global Variables
 extern int playerLocation;
-extern string room1Description;
 extern string room2Description;
 extern string room3Description;
 extern string room4Description;
 extern int gold;
 extern bool key;
 
+//Creating Objects
+Room room1O;
+
 void resetRooms()
 {
 	//Default Rooms
-	room1Description = "The room is dimly lit from candles hanging on the walls.\nYou can see large wooden doors on both the East and South sides of the room.\n";
+	room1O.setDescription("The room is dimly lit from candles hanging on the walls.\nYou can see large wooden doors on both the East and South sides of the room.\n");
 	room2Description = "There's a small chest in the center of the room. You can see large wooden doors on both the West and South sides of the room.\n";
 	room3Description = "There is a pile of bones resting in the middle of the room. You can see large wooden doors on both the North and East sides of the room.\n";
 	room4Description = "You enter a room of narrow halls and passage ways. You can see large wooden doors at the end of both the West and North passage ways.\nThe door at the end of the East passage way has a large steel lock on it.\n";
@@ -25,39 +28,39 @@ void resetRooms()
 
 void room1()	//The interactions for the first room
 {
-	cout << room1Description;	//Print out room description when player enters
+	cout << room1O.getDescription();	//Print out room description when player enters
 	bool inRoom = true;			//Whether or not the player has left the room
 	do
 	{
-		string action = getTextFromUser("What would you like to do?\n");	//Ask what they want to do
+		room1O.action = getTextFromUser("What would you like to do?\n");	//Ask what they want to do
 
-		if (action == "east")													//The player walks east
+		if (room1O.action == "east")													//The player walks east
 		{
 			cout << "You walk through the East door.\n";						//Tell them they moved
 			playerLocation = 2;													//Move them
 			inRoom = false;														//Remove them from the room
 		}
-		else if (action == "south")												//The player walks south
+		else if (room1O.action == "south")												//The player walks south
 		{
 			cout << "You walk through the South door.\n";						//Tell them they moved
 			playerLocation = 3;													//Move them
 			inRoom = false;														//Remove them from the room
 		}
-		else if (action == "west" || action == "north")							//If they go a way withouth a door
+		else if (room1O.action == "west" || room1O.action == "north")							//If they go a way withouth a door
 		{
 			cout << "You bump into a wall.\n";									//Tell them they can't go that way
 		}
-		else if (action == "look")												//If they look
+		else if (room1O.action == "look")												//If they look
 		{
-			cout << room1Description;											//Describe the room again
+			cout << room1O.getDescription();											//Describe the room again
 		}
-		else if (action == "help")												//If they ask for help
+		else if (room1O.action == "help")												//If they ask for help
 		{
 			cout << "List Of Actions:\neast\nsouth\nnorth\nwest\nlook\n\n";		//Give them a list of actions
 		}
 		else																	//If they give an unknown action
 		{
-			cout << action << " is not an action you can currently do.\n";		//Tell them they can't do that
+			cout << room1O.action << " is not an action you can currently do.\n";		//Tell them they can't do that
 		}
 
 	} while (inRoom);
