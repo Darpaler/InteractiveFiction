@@ -99,7 +99,7 @@ void room2()					//The interactions for the first room
 		}
 		else if (room2O.action == "look")															//If the player looks
 		{
-			cout << room2Description;
+			cout << room2O.getDescription();
 		}
 		else if (room2O.action == "openchest")														//If the player opens the chest
 		{
