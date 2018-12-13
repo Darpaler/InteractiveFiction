@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BossRoom.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Movement.h" />
     <ClInclude Include="pch.h" />
@@ -159,6 +160,7 @@
     <ClInclude Include="UserInput.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BossRoom.cpp" />
     <ClCompile Include="InteractiveFiction.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Movement.cpp" />
